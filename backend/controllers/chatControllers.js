@@ -1,3 +1,6 @@
+
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
 const User = require("../models/userModel");
 const asyncHandler = require("express-async-handler");
 const authmiddleware = require("../middleware/authmiddleware");

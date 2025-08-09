@@ -1,3 +1,5 @@
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
 const express = require('express')
 const messageRouter = express.Router()
 const { sendMessage, allMessage } = require('../controllers/messageControlles');
