@@ -107,4 +107,4 @@ const userchats = [
   },
 ];
 
-modules.exports = userchats;
+module.exports = userchats;
