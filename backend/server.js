@@ -1,3 +1,6 @@
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
@@ -53,12 +56,12 @@ app.use('/api/chats', chatRouter)
 app.use('/api/message', messageRouter)
 
 //------------deployment--------------- 
-    const __dirname = path.resolve() ;
+const __dirname1 = path.resolve() ;
 if (process.env.NODE_ENV === 'production'){
-    app.use(express.static(path.join(__dirname, '../frontend','dist')))
+    app.use(express.static(path.join(__dirname1, '../frontend','dist')))
 
     app.get('*' , (req,res) => {
-        res.sendFile(path.resolve(__dirname, '../frontend', 'dist', "index.html"))
+        res.sendFile(path.resolve(__dirname1, '../frontend', 'dist', "index.html"))
     });
 }else{
     app.get('/' , async(req,res)=> {
