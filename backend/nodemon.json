@@ -1,0 +1,14 @@
+{
+    "watch": [
+        "server.js",
+        "routes",
+        "controllers"
+    ],
+    "ignore": [
+        "node_modules",
+        "frontend/dist",
+        "frontend/node_modules",
+        ".git"
+    ],
+    "ext": "js,json"
+}
