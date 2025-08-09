@@ -16,7 +16,11 @@ const UserModel = require('./models/userModel')
 const userRouter = require('./routes/userRoutes')
 const chatRouter = require('./routes/chatRoutes')
 const messageRouter = require('./routes/messageRoute')
-const { Socket } = require('socket.io')
+const { Socket } = require('socket.io');
+
+
+dotenv.config();
+const db_url = process.env.Mongodb_url;
 
 
 dotenv.config()
@@ -35,8 +39,12 @@ app.use(cookieParser());
 
 
 async function main() {
-    await mongoose.connect('mongodb://127.0.0.1:27017/ichat');
+    //await mongoose.connect('mongodb://127.0.0.1:27017/ichat');
     console.log('Connected to the database');
+       mongoose.connect(db_url , {
+           useNewUrlParser: true,
+           useUnifiedTopology: true
+       })
 };
 main();
 
