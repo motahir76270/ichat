@@ -64,8 +64,6 @@ if (process.env.NODE_ENV === 'production'){
 //------------deployement---------------
 
 
-
-
 app.get('/api/data', (req, res) => {
     res.send(data)
 })
