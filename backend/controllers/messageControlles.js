@@ -1,5 +1,4 @@
-import { createRequire } from 'module';
-const require = createRequire(import.meta.url);
+
 
 const asyncHandler = require("express-async-handler");
 const smsModel = require('../models/messageModel')
