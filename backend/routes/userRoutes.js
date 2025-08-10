@@ -5,6 +5,10 @@ const { registerUser, authUser, allUser } = require("../controllers/usercontroll
 const authMiddleware = require('../middleware/authmiddleware');
 
 
+// import express from "express";
+// const userRouter = express.Router();
+// import { registerUser, authUser, allUser }  from "../controllers/usercontrollers";
+// import authMiddleware from '../middleware/authmiddleware';
 
 
 userRouter.use(express.json());  // This middleware parses JSON requests
@@ -30,8 +34,9 @@ userRouter.route('/users').get(authMiddleware,allUser);
 
 userRouter.use('/uploads', express.static('uploads'));
 
-
 module.exports = userRouter;
+
+// export default userRouter
 
 
 

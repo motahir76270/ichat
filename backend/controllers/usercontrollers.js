@@ -7,6 +7,12 @@ const bcrypt = require('bcryptjs');
 
 //import matchPassword from "../models/userModel";
 
+
+// import User from "../models/userModel"
+// import asyncHandler from "express-async-handler"
+// import genrateToken from "../config/generateToken"
+// import bcrypt from 'bcryptjs'
+
 const registerUser =  async (req,res) => {
     const { name, email, password, profilePic } = req.body;
 
@@ -79,6 +85,12 @@ const allUser = asyncHandler(async (req, res) => {
 })
 
 module.exports = { registerUser, authUser, allUser }
+
+
+
+
+
+
 
 
 

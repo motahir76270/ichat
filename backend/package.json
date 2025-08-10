@@ -3,13 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "type": "commonjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
-    "dev": "nodemon server.js",
-    "server": "nodemon server.js",
-    "client": "npm --prefix frontend run dev",
-    "build": "npm --prefix frontend run build"
+    "dev": "nodemon server.js"
   },
   "devDependencies": {
     "concurrently": "^7.0.0",

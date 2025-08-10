@@ -1,15 +1,11 @@
-import { createRequire } from 'module';
-const require = createRequire(import.meta.url);
-
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
-const port = 3030;
+const port = process.env.PORT || 3030;
 const dotenv = require('dotenv')
 const data = require('./data/data')
 const cors = require('cors')
 const path = require('path')
-
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser')
@@ -23,6 +19,7 @@ const { Socket } = require('socket.io');
 
 
 dotenv.config();
+
 const db_url = process.env.Mongodb_url;
 
 
@@ -31,7 +28,7 @@ dotenv.config()
 
 app.use(cors(
     {
-        origin: 'http://localhost:5173', // Replace with your frontend URL
+        origin: 'https://ichat-b691.onrender.com', // Replace with your frontend URL
         credentials: true, // Allow cookies to be sent
         methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
     }
@@ -70,7 +67,6 @@ if (process.env.NODE_ENV === 'production'){
 }
 
 //------------deployement---------------
-
 
 app.get('/api/data', (req, res) => {
     res.send(data)

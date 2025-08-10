@@ -5,6 +5,11 @@ const smsModel = require('../models/messageModel')
 const User = require('../models/userModel')
 const chatModel = require('../models/chatModels')
 
+// import asyncHandler from "express-async-handler"
+// import smsModel from  '../models/messageModel'
+// import User from  '../models/userModel'
+// import chatModel from  '../models/chatModels'
+
 const sendMessage = asyncHandler( async(req,res) => {
     const { content, chatId } = req.body ;
     
@@ -53,4 +58,6 @@ try {
 }
 })
 
-module.exports = { sendMessage, allMessage }
+ module.exports = { sendMessage, allMessage }
+
+

@@ -29,4 +29,4 @@ const chatModels = Schema ({
 
 const chatModel = mongoose.model('chatModel' , chatModels)
 
-module.exports = chatModel;
+ module.exports = chatModel;  //common js
