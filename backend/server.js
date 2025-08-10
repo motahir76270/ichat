@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
+console.log(mongoose.version);
 const port = process.env.PORT || 3030;
 const dotenv = require('dotenv')
 const data = require('./data/data')
@@ -41,11 +42,7 @@ app.use(cookieParser());
 async function main() {
     //await mongoose.connect('mongodb://127.0.0.1:27017/ichat');
     console.log('Connected to the database');
-       mongoose.connect(db_url,{
-           useNewUrlParser: true,
-           useUnifiedTopology: true
-        }
-       )
+       mongoose.connect(db_url)
 };
 main();
 
