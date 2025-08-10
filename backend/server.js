@@ -48,7 +48,6 @@ main();
 
 // app.get('/', (req, res) => res.send('Hello World!'))
 
-
 app.use('/api/data', userRouter)
 app.use('/api/chats', chatRouter)
 app.use('/api/message', messageRouter)
