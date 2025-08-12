@@ -5,6 +5,8 @@ import { UserContext } from '../contextapi/index';
 import { FiMail, FiLock, FiLogIn, FiAlertCircle } from 'react-icons/fi';
 
 const Login = () => {
+    const URL = process.env.serverURl;
+
     const navigate = useNavigate();
     const { setUser } = useContext(UserContext);
     const [formdata, setFormdata] = useState({
@@ -35,7 +37,7 @@ const Login = () => {
         };
 
         try {
-            const { data } = await axios.post('http://localhost:3030/api/data/login', payload, {
+            const { data } = await axios.post(`${URL}/api/data/login`, payload, {
                 headers: {
                     'Content-Type': 'application/json'
                 }

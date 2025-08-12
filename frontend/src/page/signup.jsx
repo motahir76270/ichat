@@ -28,6 +28,8 @@ const VisuallyHiddenInput = styled('input')`
 `;
 
 const Signup = () => {
+  const URL = process.env.serverURl;
+
   const navigate = useNavigate();
   const { setUser } = useContext(UserContext);
   const [isLoading, setIsLoading] = useState(false);
@@ -94,7 +96,7 @@ const Signup = () => {
       };
 
       const { data } = await axios.post(
-        'http://localhost:3030/api/data/register',
+        `${URL}/api/data/register`,
         payload,
         {
           headers: {

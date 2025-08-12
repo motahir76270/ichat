@@ -12,12 +12,14 @@ const MyChat = () => {
   const {user,setSelectedChat,setChats, setMyChatUser,setSelectUserChat} = useContext(UserContext);
   const {selectedChat,chats,myChatUser,selectUserChat} = useContext(UserContext);
   const  [loggedUser, setLoggedUser] = useState();
+  const URL = process.env.serverURl;
+
  
  
 
   const fetchChats =  async()=>{
       const token = JSON.parse(localStorage.getItem('token'));
-        const {data} = await axios.get(`http://localhost:3030/api/chats`,{
+        const {data} = await axios.get(`${URL}/api/chats`,{
           headers: {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json'

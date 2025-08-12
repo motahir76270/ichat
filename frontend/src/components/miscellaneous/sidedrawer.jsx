@@ -25,7 +25,8 @@ export default function Sidedrawer() {
   const {setChats} = useContext(UserContext);
    const {chats} = useContext(UserContext);
 
-
+    const URL = process.env.serverURl;
+ 
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
   };
@@ -58,7 +59,7 @@ export default function Sidedrawer() {
   const accessChat =  async(userId)=>{
   // const chats = useContext(UserContext);
 
-       const {data} = await axios.post(`http://localhost:3030/api/chats`, {userId}, {
+       const {data} = await axios.post(`${URL}/api/chats`, {userId}, {
                 headers: {
                       Authorization: `Bearer ${token}`,
                       'Content-Type': 'application/json'

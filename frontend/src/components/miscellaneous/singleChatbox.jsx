@@ -32,6 +32,7 @@ const [newMessage , setNewMessage] = useState('');
 const [typing , setTyping] = useState(false);
 
 const token = JSON.parse(localStorage.getItem('token'))
+const URL = process.env.serverURl;
 
  //socket.io connection setup 
    useEffect( () => {
@@ -52,7 +53,7 @@ const sendMessage = async(e) => {
       chatId: selectUserChat._id,
 
     }
-      const {data} = await axios.post('http://localhost:3030/api/message' ,payload, {
+      const {data} = await axios.post(`${URL}/api/message` ,payload, {
              headers: {
                             Authorization: `Bearer ${token}`,
                             'Content-Type': 'application/json'
@@ -71,7 +72,7 @@ const fetchMessage = async() => {
     // const id =  !selectUserChat.isGroupChat ? selectUserChat.users[1]._id : selectUserChat._id
       
     try {
-       const {data} = await axios.get(`http://localhost:3030/api/message/${selectUserChat._id}` , {
+       const {data} = await axios.get(`${URL}/api/message/${selectUserChat._id}` , {
              headers: {
                             Authorization: `Bearer ${token}`,
                             'Content-Type': 'application/json'

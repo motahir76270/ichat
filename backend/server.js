@@ -34,6 +34,7 @@ app.use(cors(
         methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
     }
 ))
+
 app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cookieParser());
@@ -41,8 +42,8 @@ app.use(cookieParser());
 
 async function main() {
     //await mongoose.connect('mongodb://127.0.0.1:27017/ichat');
+    mongoose.connect(db_url)
     console.log('Connected to the database');
-       mongoose.connect(db_url)
 };
 main();
 

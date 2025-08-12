@@ -20,6 +20,8 @@ const CreateGroup = ({open , handleClose}) => {
 
   
   const token = JSON.parse(localStorage.getItem('token'));
+  const URL = process.env.serverURl;
+
  
   const handleSearch = async(query) => {
     setSearch(query);
@@ -28,7 +30,7 @@ const CreateGroup = ({open , handleClose}) => {
     }
 
     try {
-      const {data} = await axios.get(`http://localhost:3030/api/data/users?search=${search}`,{
+      const {data} = await axios.get(`${URL}/api/data/users?search=${search}`,{
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -70,7 +72,7 @@ const CreateGroup = ({open , handleClose}) => {
      users: JSON.stringify(selectedUser.map((u) => u._id))
     }
     try {
-      const { data } = await axios.post('http://localhost:3030/api/chats/group', payloard, {
+      const { data } = await axios.post(`${URL}/api/chats/group`, payloard, {
          headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
