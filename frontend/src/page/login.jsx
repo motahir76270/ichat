@@ -4,8 +4,9 @@ import axios from 'axios';
 import { UserContext } from '../contextapi/index';
 import { FiMail, FiLock, FiLogIn, FiAlertCircle } from 'react-icons/fi';
 
+
 const Login = () => {
-    const URL = process.env.serverURl;
+  const URL = import.meta.env.VITE_SERVER_URL;
 
     const navigate = useNavigate();
     const { setUser } = useContext(UserContext);

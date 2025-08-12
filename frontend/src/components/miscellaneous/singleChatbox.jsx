@@ -32,7 +32,7 @@ const [newMessage , setNewMessage] = useState('');
 const [typing , setTyping] = useState(false);
 
 const token = JSON.parse(localStorage.getItem('token'))
-const URL = process.env.serverURl;
+const URL = import.meta.env.VITE_SERVER_URL;
 
  //socket.io connection setup 
    useEffect( () => {

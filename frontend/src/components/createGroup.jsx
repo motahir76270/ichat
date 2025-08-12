@@ -20,7 +20,8 @@ const CreateGroup = ({open , handleClose}) => {
 
   
   const token = JSON.parse(localStorage.getItem('token'));
-  const URL = process.env.serverURl;
+const URL = import.meta.env.VITE_SERVER_URL;
+  
 
  
   const handleSearch = async(query) => {

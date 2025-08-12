@@ -25,7 +25,8 @@ export default function Sidedrawer() {
   const {setChats} = useContext(UserContext);
    const {chats} = useContext(UserContext);
 
-    const URL = process.env.serverURl;
+  const URL = import.meta.env.VITE_SERVER_URL;
+   
  
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);

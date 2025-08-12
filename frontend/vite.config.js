@@ -5,6 +5,9 @@ import tailwindcss from '@tailwindcss/vite'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  // define:{
+  //   'process.env.VITE_SERVER_URL': JSON.stringify(import.meta.env.VITE_SERVER_URL)
+  // },
   build: {
     outDir: 'dist',
   },

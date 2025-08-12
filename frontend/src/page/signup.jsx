@@ -28,7 +28,7 @@ const VisuallyHiddenInput = styled('input')`
 `;
 
 const Signup = () => {
-  const URL = process.env.serverURl;
+  const URL = import.meta.env.VITE_SERVER_URL;
 
   const navigate = useNavigate();
   const { setUser } = useContext(UserContext);

@@ -12,9 +12,7 @@ const MyChat = () => {
   const {user,setSelectedChat,setChats, setMyChatUser,setSelectUserChat} = useContext(UserContext);
   const {selectedChat,chats,myChatUser,selectUserChat} = useContext(UserContext);
   const  [loggedUser, setLoggedUser] = useState();
-  const URL = process.env.serverURl;
-
- 
+  const URL = "https://ichat-b691.onrender.com";
  
 
   const fetchChats =  async()=>{
