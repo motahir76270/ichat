@@ -40,9 +40,9 @@ const Header = () => {
    const handleClose = () => setOpen(false);
 
   return (
-    <div className='flex w-100% h-15 bg-gray-200 p-4 justify-between  sm:20% sm:px-2 lg:px-14 '>
+    <div className='flex w-100% h-15 bg-gray-200 rounded-sm p-4 justify-between  sm:20% sm:px-2 lg:px-14 '>
         <Sidedrawer />
-        <h1 className='font-bold text-green-500 text-2xl'>Ichat</h1>
+        <h1 className='font-bold text-green-500 text-2xl'>iChat</h1>
         <main className='flex gap-4 items-center'>
         <NotificationsIcon />
         

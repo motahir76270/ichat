@@ -98,7 +98,7 @@ const URL = import.meta.env.VITE_SERVER_URL;
         aria-describedby="modal-modal-description" 
      >
 
-    <Box sx={style}>
+    <Box sx={style} className="bg-gray-400">
       <form action="">
         <div className='flex flex-col gap-8 mt-10'>
         <TextField id="outlined-basic" onChange={(e)=>{setGroupName(e.target.value)}} label="Goup Name" variant="outlined" />
@@ -148,6 +148,6 @@ export default  React.memo(CreateGroup)
 
 
 const style={
-    width:'27.65rem' , height:'min-height' , backgroundColor:"#dae3dd", marginTop:17,marginLeft:'35rem',
-    borderRadius:"0px 0px 8px 8px", border:'2px solid #359652',padding:6, 
+    width:'27.65rem' , height:'min-height' , marginTop:17,marginLeft:'35rem',
+    borderRadius:"5px", border:'2px solid gray',padding:6, 
    }

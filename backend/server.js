@@ -30,6 +30,7 @@ dotenv.config()
 app.use(cors(
     {
         origin: 'https://ichat-b691.onrender.com', // Replace with your frontend URL
+        // origin: 'http://localhost:5173', // Allow local development
         credentials: true, // Allow cookies to be sent
         methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
     }
@@ -86,7 +87,7 @@ const server = app.listen(port, () => console.log(`Example app listening on port
 const io = require('socket.io')(server, {
     pingTimeout: 60000,
     cors: {
-        origin: "http://localhost:5173",
+        origin: 'https://ichat-b691.onrender.com', // Replace with your frontend URL
         credentials: true,
     },
 })

@@ -5,6 +5,7 @@ import Box from '@mui/material/Box';
 import Avatar from '@mui/material/Avatar';
 import axios from 'axios';
 import { getSender } from '../config/chatLogic';
+import Divider from '@mui/material/Divider';
  
 
 const MyChat = () => {
@@ -12,7 +13,7 @@ const MyChat = () => {
   const {user,setSelectedChat,setChats, setMyChatUser,setSelectUserChat} = useContext(UserContext);
   const {selectedChat,chats,myChatUser,selectUserChat} = useContext(UserContext);
   const  [loggedUser, setLoggedUser] = useState();
-  const URL = "https://ichat-b691.onrender.com";
+  const URL = import.meta.env.VITE_SERVER_URL;
  
 
   const fetchChats =  async()=>{
@@ -48,9 +49,9 @@ const MyChat = () => {
         md:"flex", // always show on medium and up ,
       },
       width:{xs:"100%",sm:"30%",lg:"32%" },
-      height:535
+      height:535,
     }}
-    className='flex flex-col bg-gray-200  h-150 rounded-lg' >
+    className='flex flex-col bg-gray-200 h-150 rounded-sm' >
         <MyChatHearder />
         <Box className="h-135" sx={{overflowY:'scroll'}}>
           
@@ -67,7 +68,7 @@ const MyChat = () => {
                <button className='text-2xl ml-[-.7rem]' > { !item.isGroupChat ? getSender(user,item).toUpperCase() : item.chatName.toUpperCase()  } </button>
                </div>
              </Box> 
-           
+            
           
               )
             } )}

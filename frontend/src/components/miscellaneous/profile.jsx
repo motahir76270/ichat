@@ -20,7 +20,7 @@ const Profile = ({ open, handleClose }) => {
     width: { xs: '90%', sm: 500 },
     maxWidth: 500,
     maxHeight: '90vh',
-    bgcolor: 'background.paper',
+    backgroundColor:"gray",
     borderRadius: theme.shape.borderRadius,
     boxShadow: theme.shadows[24],
     p: 4,
@@ -58,7 +58,7 @@ const Profile = ({ open, handleClose }) => {
 
         <Avatar
           src={user?.profilePic}
-          alt={user?.name}
+          alt={user?.profilePic}
           sx={{
             width: 120,
             height: 120,
@@ -88,15 +88,6 @@ const Profile = ({ open, handleClose }) => {
               </Typography>
             </Box>
 
-            {/* Add more user information fields as needed */}
-            {/* <Box sx={{ mb: 2 }}>
-              <Typography variant="body2" color="text.secondary">
-                Joined Date
-              </Typography>
-              <Typography variant="body1">
-                {new Date(user?.createdAt).toLocaleDateString()}
-              </Typography>
-            </Box> */}
           </Box>
         </Box>
       </Box>

@@ -15,6 +15,7 @@ const ChatBox = () => {
     width: { xs: '100%', md: '69%',lg:"68%" },
     height:535,
     backgroundColor: '#fcf5eb',
+    borderRadius: '8px',  
   }}
 >
   { selectUserChat ? (<SingleChatbox/>): (<DemoChating />) }

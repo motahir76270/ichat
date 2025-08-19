@@ -145,7 +145,7 @@ useEffect(() => {
 
     
   return (
-    <div className='bg-gray-200 w-full px-4 py-2'>
+    <div className='bg-gray-200 w-full px-4 py-2 rounded-sm'>
         <div className='flex justify-between px-2'>
         {/* <button className='bg-gray-300 rounded-lg p-2 text-center '> <ArrowBackIcon  /> </button> */}
         <div className='flex gap-4'>
@@ -165,13 +165,13 @@ useEffect(() => {
          <FormControl onClick={sendMessage} type="submit" action="" sx={{width:"60%" , bottom:20 , position:"absolute"}}>
            { typing ? ( 
              <div style={{ width: 130, height: 130,marginTop:40 ,position:"relative"}}>
-            <Lottie animationData={animationData}  loop={true} speed={0.5} className='mt-15' /> </div> 
+            <Lottie animationData={animationData}  loop={true} speed={0.5} className='mt-6 ml-6' /> </div> 
           ) : (<></>) }
 
-          <div className='flex gap-2 p-3 sm:w-[40%] md:w-[90%] lg:w-[100%] h-16 '>
+          <div className='flex gap-2 sm:absolute sm:py-2 md:w-[80%] lg:left-10 md:bottom-[-15px] md:bsolute lg:w-[100%] '>
           <input type="text" placeholder='typping somthing' value={newMessage}  onChange={inputHandler }
-          className='border-1 border-gray-400  h-10 px-10 rounded-3xl w-100% sm:w-[220px] md:w-[800px] lg:w-[450px]" ' />
-          <Button type="submit" >  <SendIcon sx={{width:40,height:40}} /> </Button>
+          className='typing border-1 border-gray-400  h-10 px-5 rounded-3xl sm:w-[100px]  md:w-[800px] lg:w-[800px] ' />
+          <Button type="submit" className='sendBox bottom-2' >  <SendIcon sx={{width:40,height:40}} /> </Button> 
           </div>
          </FormControl>
 

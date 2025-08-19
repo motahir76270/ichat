@@ -11,6 +11,7 @@ const DemoChating = () => {
       alignItems: "center",
       minHeight: "60vh",
       backgroundColor: "#f5f5f5",
+      borderRadius: "8px",
     }}>
       <Box sx={{
         width: { xs: "50%", sm: "80%", md:"100%"},
@@ -20,15 +21,15 @@ const DemoChating = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        borderRadius: 0,
         boxShadow: 3,
         mb: 4,
-        p: 2
+        p: 2,
+        borderRadius: "4px 4px 0px 0px",
       }}>
         <Typography variant="h4" component="h1" sx={{
           fontWeight: "bold",
           fontSize: { xs: "1.5rem", sm: "2rem" },
-          textAlign: "center"
+          textAlign: "center",  
         }}>
           Welcome to My App
         </Typography>

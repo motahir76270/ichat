@@ -1,6 +1,5 @@
-import Input from '@mui/joy/Input';
 import React, { useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import { UserContext } from '../contextapi';
 import {
@@ -10,10 +9,13 @@ import {
   FormControl,
   Avatar,
   CircularProgress,
-  Alert
+  Alert,
+  Input,
+  Card
 } from '@mui/joy';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { styled } from '@mui/joy/styles';
+import { FiArrowLeft, FiUser, FiMail, FiLock, FiCamera } from 'react-icons/fi';
 
 const VisuallyHiddenInput = styled('input')`
   clip: rect(0 0 0 0);
@@ -119,44 +121,87 @@ const Signup = () => {
   return (
     <Box
       sx={{
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent:'center',
-        justifyItems:'center',
         minHeight: '70vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        p: 2,
+        paddingTop: { xs: 2.9, sm: 2}
       }}
+      className="bg-gray-800 "
     >
-      <Box
+      <Card
         sx={{
           width: '100%',
-          maxWidth: '400px',
-          p: 3,
-          borderRadius: 'sm',
-          boxShadow: 'sm',
-          backgroundColor: '#e0f0f0'
+          maxWidth: '450px',
+          height:{  xs: '100%', sm: 'auto' },
+          p: { xs: 1, sm: 2.2 },
+          px:{ xs: 3, sm: 4 },
+          borderRadius: 'xl',
+          boxShadow: 'lg',
+          border: '2px solid #1e40af !important' ,
+          borderColor: 'divider',
+          backgroundColor: 'inherit'
         }}
       >
-        <Typography level="h4" component="h1" sx={{ textAlign: 'center', mb: 2 }}>
-          Sign Up
-        </Typography>
+        {/* Mobile back button */}
+        <Box sx={{ display: { xs: 'flex', md: 'none' }, alignItems: 'center', mb: 2 }}  >
+          <Button
+            variant="plain"
+            onClick={() => navigate(-1)}
+            startDecorator={<FiArrowLeft />}
+            sx={{ color: 'text.secondary' }}
+          >
+            Back
+          </Button>
+        </Box>
+
+        {/* Header */}
+        <Box sx={{ textAlign: 'center', mb: 3 }} >
+          <Typography level="h3" component="h1" sx={{ mb: 1, fontWeight: 'bold',color:"white" }}>
+            Create Account
+          </Typography>
+          <Typography level="body-sm" sx={{ color:"white"  }}>
+            Join us to start chatting
+          </Typography>
+        </Box>
 
         {error && (
-          <Alert color="danger" size="sm" sx={{ mb: 2 }}>
+          <Alert color="danger" size="sm" sx={{ mb: 3 }}>
             {error}
           </Alert>
         )}
 
         <form onSubmit={handlesubmit}>
-          <Box sx={{ display: 'flex', justifyContent: 'center', mb: 2 }}>
+          {/* Profile picture upload */}
+          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mb: 3 }}>
+            <Avatar
+              src={previewImage}
+              sx={{
+                width: 80,
+                height: 80,
+                mb: 2,
+                backgroundColor: previewImage ? 'transparent' : 'neutral.100',
+                '&:hover': {
+                  opacity: 0.8,
+                  cursor: 'pointer'
+                }
+              }}
+              onClick={() => document.getElementById('profile-upload').click()}
+            >
+              {!previewImage && <FiCamera size={24} />}
+            </Avatar>
+            
             <Button
               component="label"
               variant="outlined"
               size="sm"
               startDecorator={<CloudUploadIcon />}
-              sx={{ borderRadius: '20px' }}
+              sx={{ borderRadius: 'lg' }}
             >
               Upload Photo
               <VisuallyHiddenInput
+                id="profile-upload"
                 type="file"
                 accept="image/*"
                 onChange={handleInputFile}
@@ -164,32 +209,39 @@ const Signup = () => {
             </Button>
           </Box>
 
-          {previewImage && (
-            <Box sx={{ display: 'flex', justifyContent: 'center', mb: 2 }}>
-              <Avatar src={previewImage} size="lg" />
-            </Box>
-          )}
-
+          {/* Form fields */}
           <FormControl sx={{ mb: 2 }}>
             <Input
-              placeholder="Name"
+              placeholder="Full Name"
               name="name"
               onChange={handleChange}
               value={formdata.name}
               size="lg"
               required
+              startDecorator={<FiUser />}
+              sx={{
+                borderRadius: 'lg',
+                backgroundColor: 'transparent',
+                 color: 'white',
+              }}
             />
           </FormControl>
 
           <FormControl sx={{ mb: 2 }}>
             <Input
-              placeholder="Email"
+              placeholder="Email Address"
               type="email"
               name="email"
               onChange={handleChange}
               value={formdata.email}
               size="lg"
               required
+              startDecorator={<FiMail />}
+              sx={{
+                borderRadius: 'lg',
+                backgroundColor: 'transparent',
+                 color: 'white',
+              }}
             />
           </FormControl>
 
@@ -202,6 +254,12 @@ const Signup = () => {
               value={formdata.password}
               size="lg"
               required
+              startDecorator={<FiLock />}
+              sx={{
+                borderRadius: 'lg',
+                backgroundColor: 'transparent',
+                color: 'white',
+              }}
             />
           </FormControl>
 
@@ -211,12 +269,39 @@ const Signup = () => {
             size="lg"
             loading={isLoading}
             loadingIndicator={<CircularProgress size="sm" />}
+            sx={{
+              borderRadius: 'lg',
+              fontWeight: 'bold',
+              py: 1.5,
+              backgroundColor: 'primary.500',
+              '&:hover': {
+                backgroundColor: 'primary.600',
+                transform: 'translateY(-1px)',
+                boxShadow: 'md'
+              },
+              transition: 'all 0.2s ease'
+            }}
           >
-            {isLoading ? 'Signing Up...' : 'Sign Up'}
+            {isLoading ? 'Creating Account...' : 'Sign Up'}
           </Button>
         </form>
 
-      </Box>
+        <Box sx={{ textAlign: 'center', mt: 3 }}>
+          <Typography level="body-sm" sx={{ color:"white"  }}>
+            Already have an account?{' '}
+            <Link 
+              to="/" 
+              style={{ 
+                color: '#1976d2', 
+                textDecoration: 'none',
+                fontWeight: 'bold'
+              }}
+            >
+              Sign in
+            </Link>
+          </Typography>
+        </Box>
+      </Card>
     </Box>
   );
 };
