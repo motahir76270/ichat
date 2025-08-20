@@ -87,7 +87,7 @@ const server = app.listen(port, () => console.log(`Example app listening on port
 const io = require('socket.io')(server, {
     pingTimeout: 60000,
     cors: {
-        origin: 'https://localhost:5173', // Replace with your frontend URL
+        origin: 'https://ichat-b691.onrender.com', // Replace with your frontend URL
         credentials: true,
     },
 })
