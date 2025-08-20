@@ -107,10 +107,8 @@ const Signup = () => {
         }
       );
 
-      setUser(data);
-      localStorage.setItem('token', JSON.stringify(data.token));
-      localStorage.setItem('userData', JSON.stringify(data));
-      navigate('/ichat');
+      setUser(data)
+      navigate('/');
     } catch (err) {
       setError(err.response?.data?.message || 'Registration failed');
     } finally {
