@@ -16,6 +16,7 @@ const Ichat = () => {
       <div className='flex gap-4'>
       {user ?   <MyChat />   :  <MyChat />}
       {user ? <ChatBox /> :<ChatBox />  }
+      
       </div>
   </div>
   </>
